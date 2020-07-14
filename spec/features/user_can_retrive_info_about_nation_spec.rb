@@ -14,7 +14,17 @@ describe "User can search by nation" do
     select 'Fire Nation'
     click_on 'Search For Members'
 
-    expect(page).to have_content("Number of Members: ")
+    within (".count") do
+      expect(page).to have_content("Number of Members: 20")
+    end
+
+    within(first(".member")) do
+      expect(page).to have_css(".name")
+      expect(page).to have_css(".photo")
+      expect(page).to have_css(".enemies")
+      expect(page).to have_css(".allies")
+      expect(page).to have_css(".affiliation")
+    end
   end
 end
 
