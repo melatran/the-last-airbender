@@ -8,18 +8,16 @@ describe "User can search by nation" do
     click_on 'Search For Members'
     expect(current_path).to eq('/search')
   end
+
+  it "can display the information about select nation" do
+    visit '/'
+    select 'Fire Nation'
+    click_on 'Search For Members'
+
+    expect(page).to have_content("Number of Members: ")
+  end
 end
 
-
-
-
-
-
-
-
-
-
-#
 # As a user,
 # When I visit "/"
 # And I Select "Fire Nation" from the select field
